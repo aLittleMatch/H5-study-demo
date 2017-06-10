@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>canvas</title>
+    </head>
+    <body>
+    	<canvas id="canvas" width="500" height="500"></canvas>
+    </body>
+    <script>
+    	var canvas = document.getElementById("canvas");
+    	var can = canvas.getContext("2d");
+
+    	//画矩形
+    	can.fillStyle = "#ccc";//定义颜色
+    	can.fillRect(0,0,300,300);//定义矩形大小
+
+    	can.fillStyle = "rgba(0,0,255,0.5)";
+    	can.fillRect(200,200,500,500);
+    	can.closePath();//结束画布。防止冲突重叠
+
+    	//画一条线
+    	can.moveTo(10,10);//起始位置的坐标
+    	can.lineTo(150,150);//终止位置的坐标
+    	can.lineTo(10,50);
+    	can.lineTo(100,250);   	
+    	can.fill();//颜色的填充方式为填充
+    	can.stroke();//颜色的填充方式为描边
+		can.closePath();//结束画布。防止冲突重叠
+    	//画圆
+    	can.fillStyle = "rgba(255,0,0,0.5)";
+    	can.arc(200,200,30,0,Math.PI*2,true);
+    	can.fill();
+    	can.closePath();//结束画布。防止冲突重叠
+    	
+    	
+
+
+
+
+    </script>
+</html>

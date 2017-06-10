@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>鼠标拖拽</title>
+	<style>
+		#one{
+			width: 200px;
+			height: 200px;
+			border: 1px solid red;
+		}
+		#two{
+			width: 100px;
+			height: 100px;
+			border: 1px solid blue;
+		}
+	</style>
+</head>
+<body>
+	<div id="one"></div>
+	<div id="two" draggable="true"></div>
+
+	<script type="text/javascript">
+		window.onload = function(){
+			var one = document.getElementById("one");
+			var two = document.getElementById("two");
+
+			//拖拽区事件
+			two.ondragstart = function(){
+				//two.innerHTML = "开始拖拽";
+			};
+			two.ondrag = function(){
+				//two.innerHTML += "开始移动";
+			};
+			two.ondragend = function(){
+				//two.innerHTML = "移动结束";
+			};
+
+			//投放区事件
+			one.ondragenter = function(e){
+				//one.innerHTML = "已经进入";
+				e.preventDefault();
+			};
+
+			one.ondragover = function(e){
+				//one.innerHTML += "移动";
+				e.preventDefault();
+			};
+
+			one.ondragleave = function(){
+				//one.innerHTML = "离开";
+			};
+
+			one.ondrop = function(){
+				one.appendChild(two);
+			};
+		};
+
+
+	</script>
+</body>
+</html>
